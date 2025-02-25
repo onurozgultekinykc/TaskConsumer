@@ -62,8 +62,9 @@ namespace taskscheduleykc
 
                     if (scheduleWarn != null&&scheduleWarn.MethodName!="Remove")
                     {
-                        // Gelen obje bir metoda gidecek parametre olarak ve 10 dk sonra çalışacak
-                        string jobId = BackgroundJob.Schedule(() => ProcessSchedule(scheduleWarn), TimeSpan.FromSeconds(20));
+                        //scheduleWarn.NotificationTime
+                        Console.WriteLine("Job Time: "+scheduleWarn.NotificationTime);
+                        string jobId = BackgroundJob.Schedule(() => ProcessSchedule(scheduleWarn),scheduleWarn.NotificationTime);
 
                         // JobId ve ScheduleWarnId'yi veritabanına ekleyelim
                         await InsertJobRecord(scheduleWarn.ScheduleWarnId.ToString(), jobId);
@@ -101,7 +102,7 @@ namespace taskscheduleykc
                                   autoAck: false, // Manuel onaylama
                                   consumer: consumer);
 
-            Console.WriteLine("task_queue Consumer çalışıyor, task kuyruğu dinleniyor...");
+            Console.WriteLine("task_queue Consumer is working, task queue listening...");
         }
         public int sayac = 1;
         [AutomaticRetry(Attempts = 7, DelaysInSeconds = new int[] { 10, 30, 60, 120, 500,2000,5000 })]
