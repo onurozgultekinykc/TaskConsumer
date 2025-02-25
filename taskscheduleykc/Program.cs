@@ -33,8 +33,8 @@ class Program
             taskConsumer.StartListening();
 
             // Programın kapanmaması için bekleme
-            Console.WriteLine("Çıkmak için Enter'a basın...");
-            Console.ReadLine();
+            Console.WriteLine("Sıkı Dur");
+          
         }
     }
 
