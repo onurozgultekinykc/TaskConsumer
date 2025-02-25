@@ -109,7 +109,8 @@ namespace taskscheduleykc
         {
             try
             {
-
+                if (scheduleWarn.BaseUrl.Contains("localhost"))
+                    scheduleWarn.BaseUrl="http://127.0.0.1:8090";
                 string baseUri = scheduleWarn.BaseUrl + "/ScheduleHookQueue/ReceiveHook";
 
                 using (HttpClient client = new HttpClient())
