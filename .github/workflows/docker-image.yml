@@ -15,4 +15,4 @@ jobs:
       - name: push image to docker hub
         run: |
           docker login -u unholyw4r -p ${{ secrets.DOCKER_HUB_TOKEN }}
-          docker push unholyw4r/consumermail:latest
+          docker push unholyw4r/consumertask:latest
