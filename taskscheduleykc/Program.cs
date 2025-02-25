@@ -25,7 +25,7 @@ class Program
 
         using (var server = new BackgroundJobServer())
         {
-            Console.WriteLine("Hangfire server başlatıldı ve job'lar çalışmaya başladı...");
+            Console.WriteLine("Hangfire is ready!");
 
             // RabbitMQ dinlemeyi başlat
             var taskConsumer = new TaskConsumer();
@@ -33,8 +33,8 @@ class Program
             taskConsumer.StartListening();
 
             // Programın kapanmaması için bekleme
-            Console.WriteLine("Sıkı Dur");
-          
+            Console.WriteLine("Task Consumer is running!");
+            await Task.Delay(-1);
         }
     }
 
@@ -57,7 +57,7 @@ class Program
                     await command.ExecuteNonQueryAsync();
                 }
             }
-            Console.WriteLine("JobDtoScheduleWarn tablosu kontrol edildi.");
+            Console.WriteLine("JobDtoScheduleWarn table checked ");
         }
         catch (Exception ex)
         {
