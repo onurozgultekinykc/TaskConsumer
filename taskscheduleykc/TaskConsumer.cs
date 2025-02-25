@@ -109,6 +109,7 @@ namespace taskscheduleykc
         {
             try
             {
+
                 string baseUri = scheduleWarn.BaseUrl + "/ScheduleHookQueue/ReceiveHook";
 
                 using (HttpClient client = new HttpClient())
@@ -123,7 +124,7 @@ namespace taskscheduleykc
                         throw new Exception($"Hata: {response.StatusCode}");
                     }
 
-                    Console.WriteLine("Veri başarıyla gönderildi.");
+                    Console.WriteLine("Has been send: "+"Time:"+scheduleWarn.NotificationTime +" Schedule Post to: "+baseUri);
                 }
             }
             catch (Exception ex)
