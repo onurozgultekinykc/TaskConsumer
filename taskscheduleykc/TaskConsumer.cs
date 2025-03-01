@@ -24,8 +24,8 @@ namespace taskscheduleykc
             _factory = new ConnectionFactory
             {
                 Port = 5672,
-                //HostName = "c_rabbitmq",
-                HostName = "192.168.1.76",
+                HostName = "c_rabbitmq",
+                //HostName = "192.168.1.76",
                 UserName = "user",
                 Password = "1234567",
 
